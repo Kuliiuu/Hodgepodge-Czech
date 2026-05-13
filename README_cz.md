@@ -92,7 +92,7 @@ Hodgepodge je licensován pod LGPL-3.
 
 Jsou implementována různá zrychlení a opravy pádů, například prevence "chunk banů" zvýšením limitů velikosti paketů.
 
-## Debugovací JVM argumenty
+## Debugovací příkazy a JVM argumenty
 
 Seznam JVM argumentů používaných k aktivaci debugovacích nástrojů:  
 
@@ -104,3 +104,7 @@ Seznam JVM argumentů používaných k aktivaci debugovacích nástrojů:
 - `-Dhodgepodge.logEnumValues=true` loguje případy, kdy je `Enum#values()` voláno příliš často, a vytváří soubor `EnumValuesDebug.csv` s výsledky
 - `-Dhodgepodge.logIntervalEnumValues=500` (používá se s `logEnumValues`) určuje práh, při kterém se vypíše logovací zpráva
 - `-Dhodgepodge.logStacktraceEnumValues=true` (používá se s `logEnumValues`) vypisuje stacktrace místa, odkud je `Enum#values()` voláno
+
+Debugovací příkazy:
+
+-  `/dumptextureatlas` exportuje atlas textur itemů i bloků, včetně všech prázdných a chybných textur
