@@ -916,8 +916,9 @@ public enum Mixins implements IMixins {
     BETTER_MOD_LIST(new MixinBuilder()
             .addClientMixins(
                     "fml.MixinGuiModList",
-                    "fml.MixinGuiSlotModList",
-                    "fml.MixinGuiScrollingList")
+                    "fml.MixinGuiScrollingList",
+                    "fml.AccessorGuiScrollingList",
+                    "fml.AccessorGuiSlotModList")
             .setApplyIf(() -> TweaksConfig.betterModList)
             .addExcludedMod(TargetedMod.ENDERCORE_WITH_MODLIST)
             .setPhase(Phase.EARLY)),
@@ -1395,6 +1396,11 @@ public enum Mixins implements IMixins {
                     "biomesoplenty.MixinWorldGenBOPTallGrass_CacheItemStack",
                     "biomesoplenty.MixinBiomeFeatures_CacheFields")
             .setApplyIf(() -> SpeedupsConfig.speedupBOPBiomeDecoration)
+            .addRequiredMod(TargetedMod.BOP)
+            .setPhase(Phase.LATE)),
+    FIX_BOP_CASCADING_KELP(new MixinBuilder("Fixes cascading worldgen caused by BOP Kelp.")
+            .addCommonMixins("biomesoplenty.MixinWorldGenKelp")
+            .setApplyIf(() -> FixesConfig.fixBOPCascadingKelp)
             .addRequiredMod(TargetedMod.BOP)
             .setPhase(Phase.LATE)),
 
